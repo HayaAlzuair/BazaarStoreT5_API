@@ -2,79 +2,80 @@ package base_urls;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.BeforeMethod;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
 public class BaseUrl {
+
     protected RequestSpecification spec;
     private static final String baseUrl = "https://bazaarstores.com";
-    private static final Map<String, String> tokenMap = new HashMap<>();
-
-    // Default role (can be changed in test class before @BeforeMethod runs)
-    protected String role = "admin";
 
     @BeforeMethod
     public void setSpec() {
-        String token = switch (role.toLowerCase()) {
-            case "admin" -> getAdminToken();
-            case "storemanager" -> getStoreManagerToken();
-            case "customer" -> getCustomerToken();
-            default -> throw new IllegalArgumentException("Unknown role: " + role);
-        };
+
+        String token = getAdminToken();
+
 
         spec = new RequestSpecBuilder()
                 .setBaseUri(baseUrl)
-                .addHeader("Cookie", "token=" + token)
+                .addHeader("Authorization", "Bearer " + token)
                 .setContentType(ContentType.JSON)
+                .setAccept(ContentType.JSON)
                 .build();
     }
 
-    public String getAdminToken() {
+    // ------------------------------
+    // Login for default admin
+    // ------------------------------
+    String getToken() {
+        String credentials = """
+                {
+                    "email" : "admin@sda.com",
+                    "password" : "Password.12345"
+                }""";
+
+        return given()
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .body(credentials)
+                .post(baseUrl + "/api/login")
+                .jsonPath()
+                .getString("authorisation.token");
+    }
+
+    // -----------------------------------------
+    // Overloaded token method for any user
+    // -----------------------------------------
+    String getToken(String email, String password) {
+        String credentials = """
+                {
+                    "email" : "%s",
+                    "password" : "%s"
+                }""".formatted(email, password);
+
+        return given()
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .body(credentials)
+                .post(baseUrl + "/api/login")
+                .jsonPath()
+                .getString("authorisation.token");
+    }
+
+    // -----------------------------------------
+    // Predefined tokens
+    // -----------------------------------------
+    String getAdminToken() {
         return getToken("admin@sda.com", "Password.12345");
     }
 
-    public String getStoreManagerToken() {
+    String getStoreManagerToken() {
         return getToken("storemanager@sda.com", "Password.12345");
     }
 
-    public String getCustomerToken() {
+    String getCustomerToken() {
         return getToken("customer@sda.com", "Password.12345");
-    }
-
-    private String getToken(String email, String password) {
-        if (tokenMap.containsKey(email)) {
-            return tokenMap.get(email);
-        }
-
-        String credentials = String.format("""
-                {
-                    "email": "%s",
-                    "password": "%s"
-                }
-                """, email, password);
-
-        Response response = given()
-                .body(credentials)
-                .contentType(ContentType.JSON)
-                .post(baseUrl + "/api/login")
-                .then()
-                .log().all()
-                .extract()
-                .response();
-
-        String token = response.jsonPath().getString("token");
-
-        if (token == null || token.isEmpty()) {
-            throw new RuntimeException("Failed to retrieve token for user: " + email);
-        }
-
-        tokenMap.put(email, token);
-        return token;
     }
 }
