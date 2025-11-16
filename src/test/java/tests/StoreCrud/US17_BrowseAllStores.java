@@ -1,22 +1,21 @@
 package tests.StoreCrud;
 
 import base_urls.BaseUrl;
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
-import org.testng.Assert;
 import org.testng.annotations.Test;
+
 import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.request;
+import static org.hamcrest.Matchers.notNullValue;
 
 
 public class US17_BrowseAllStores extends BaseUrl {
-    @Test
-    void browsallStores() {
-        setSpec(UserType.ADMIN);
 
-        // نفذ الطلب
+    @Test
+    void GETAllStores() {
+
+      setSpec(UserType.ADMIN);
+
+
         Response response = given()
                 .spec(spec)
                 .when()

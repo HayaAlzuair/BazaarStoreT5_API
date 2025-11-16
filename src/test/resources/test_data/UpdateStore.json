@@ -1,6 +1,7 @@
 {
-  "name": "Apple Store",
+  "name": "Samsung Store",
   "description": "Tech",
   "location": "RIYADH",
+  "admin_d" : "Store Manager",
   "admin_id": 376
 }
