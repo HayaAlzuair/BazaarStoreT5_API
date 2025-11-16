@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="/Users/hyo/IdeaProjects/BazaarStoreT5_API/src/test/java/tests/StoreCrud/US18_ViewStoreDetails.java">
+        <classes>
+            <class name="tests.StoreCrud.US19_CreateNewStore"> </class>
+            <class name="tests.StoreCrud.US18_ViewStoreDetails"> </class>
+            <class name="tests.StoreCrud.US21_DeleteStore"> </class>
+        </classes>
+    </test>
+</suite>

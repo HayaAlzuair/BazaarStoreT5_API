@@ -12,11 +12,14 @@ import static io.restassured.RestAssured.request;
 
 
 public class US17_BrowseAllStores extends BaseUrl {
+
+
+
     @Test
     void browsallStores() {
         setSpec(UserType.ADMIN);
 
-        // نفذ الطلب
+
         Response response = given()
                 .spec(spec)
                 .when()
