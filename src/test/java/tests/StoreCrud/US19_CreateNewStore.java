@@ -32,6 +32,23 @@ public class US19_CreateNewStore extends BaseUrl {
 
         storeId = response.jsonPath().getString("product.id");
 
+    }
+    @Test
+    void missingfields() {
+        setSpec(UserType.ADMIN);
+        JsonNode payload = getJsonNode("Store");
+        Response response = given(spec).body(payload).post("/api/stores/create");
+        response.prettyPrint();
+        response.then()
+          .statusCode(422)
+                .body("product.description", equalTo(payload.get("description").asText()))
+                .body("product.location", equalTo(payload.get("location").asText()))
+                .body("product.admin_id", equalTo(payload.get("admin_id").asInt()));
+
+
+
+        storeId = response.jsonPath().getString("product.id");
+
 
 
     }

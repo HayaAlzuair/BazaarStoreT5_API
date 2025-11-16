@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="Store Operation ">
+        <classes>
+
+            <class name="tests.StoreCrud.US17_BrowseAllStores"></class>
+            <class name="tests.StoreCrud.US19_CreateNewStore">
+                <methods>
+                    <include name="CreateNewStore"/>
+                </methods>
+            </class>
+
+            <class name="tests.StoreCrud.US18_ViewStoreDetails">
+                <methods>
+                    <include name="GetSpecificStore"></include>
+                </methods>
+            </class>
+            <class name="tests.StoreCrud.US20_UpdateExistingStore">
+            <methods>
+                <include name="PUTStore"/>
+            </methods></class>
+            <class name="tests.StoreCrud.US21_DeleteStore"></class>
+        </classes>
+    </test>
+</suite>
