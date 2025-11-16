@@ -35,6 +35,26 @@ public class US18_ViewStoreDetails extends BaseUrl {
                 );
 
 
+    }@Test
+    void TestNotFound() {
+        setSpec(UserType.ADMIN);
+        JsonNode expectedData = getJsonNode("Store");
+        Response response = given(spec).get("/api/stores/999999" );
+        response.prettyPrint();
+
+        response
+                .then()
+                .statusCode(404)
+                .body(
+                        "id", equalTo(Integer.valueOf(999999)),
+                        "name", equalTo(expectedData.get("name").asText()),
+                        "description", equalTo(expectedData.get("description").asText()),
+                        "location", equalTo(expectedData.get("location").asText()),
+                        "admin_id", equalTo(expectedData.get("admin_id").asInt())
+
+                );
+
+
     }
 
 
