@@ -1,28 +1,34 @@
 package tests.StoreCrud;
 
 import base_urls.BaseUrl;
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
-import org.testng.Assert;
 import org.testng.annotations.Test;
+
 import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.request;
+import static org.hamcrest.Matchers.notNullValue;
 
 
 public class US17_BrowseAllStores extends BaseUrl {
+
     @Test
-    void browsallStores() {
+    void GETAllStores() {
+
         setSpec(UserType.ADMIN);
 
-        // نفذ الطلب
         Response response = given()
                 .spec(spec)
                 .when()
                 .get("/api/stores");
         response.prettyPrint();
+        response.then().statusCode(200);
 
+        response.then().body("[0].id", notNullValue());
+        response.then().body("[0].name", notNullValue());
+        response.then().body("[0].description", notNullValue());
+        response.then().body("[0].location", notNullValue());
+        response.then().body("[0].admin_id", notNullValue());
+        response.then().body("[0].created_at", notNullValue());
+        response.then().body("[0].updated_at", notNullValue());
 
     }
 }
