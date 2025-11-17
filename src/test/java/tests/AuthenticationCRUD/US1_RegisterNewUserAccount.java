@@ -2,6 +2,8 @@ package tests.AuthenticationCRUD;
 
 import base_urls.BaseUrl;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.github.javafaker.Faker;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
@@ -15,12 +17,15 @@ import static utilities.ObjectMapperUtils.getJsonNode;
 
 public class US1_RegisterNewUserAccount extends BaseUrl {
 
+    public static String email;
     public static String userId;
 
     @Test
     void happyPathOfRegister() {
         setSpec(UserType.CUSTOMER);
         JsonNode payload = getJsonNode("Authentication");
+        email = Faker.instance().internet().emailAddress();
+        ((ObjectNode) payload).put("email", email);
         Response response = given(spec).body(payload).post("/api/register");
 
         response.then()
