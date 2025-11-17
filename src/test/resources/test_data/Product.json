@@ -1,0 +1,15 @@
+{
+  "name": "Smart Watch8",
+  "description": "High quality smart watch",
+  "price": 44.00,
+  "sku": "SW355",
+  "category_id": 2,
+  "manufacturer": "TechCorp",
+  "stock": 45,
+  "image_url": "images/smartwatch.png",
+  "weight": 0.2,
+  "length": 10.0,
+  "width": 5.0,
+  "height": 1.5,
+  "discount": 0.0
+}

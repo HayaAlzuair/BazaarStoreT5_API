@@ -1,0 +1,8 @@
+{
+  "name": "Updated test product",
+  "description": "Updated desc",
+  "price": 99,
+  "stock": 25,
+  "category_id": 1,
+  "sku": "NEW-SKU-12344"
+}
