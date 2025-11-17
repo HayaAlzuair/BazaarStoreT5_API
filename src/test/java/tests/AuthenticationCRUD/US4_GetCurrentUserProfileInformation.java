@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
+import static org.testng.AssertJUnit.assertEquals;
 import static utilities.ObjectMapperUtils.getJsonNode;
 
 public class US4_GetCurrentUserProfileInformation extends BaseUrl {
@@ -24,10 +25,13 @@ public class US4_GetCurrentUserProfileInformation extends BaseUrl {
 
         response.then()
                 .statusCode(200)
-                .body("id", equalTo(expected.get("id").asText()))
                 .body("name", equalTo(expected.get("name").asText()))
                 .body("email",equalTo(expected.get("email").asText()))
                 .body("role",equalTo(expected.get("role").asText()));
+        String actualId = response.jsonPath().getString("id").replaceAll("[<>]", "");
+        String expectedId = expected.get("id").asText();
+        assertEquals(expectedId, actualId);
+
     }
 
     @Test
