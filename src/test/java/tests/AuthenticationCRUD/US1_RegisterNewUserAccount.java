@@ -15,18 +15,21 @@ import static utilities.ObjectMapperUtils.getJsonNode;
 
 public class US1_RegisterNewUserAccount extends BaseUrl {
 
+    public static String userId;
 
     @Test
     void happyPathOfRegister() {
         setSpec(UserType.CUSTOMER);
         JsonNode payload = getJsonNode("Authentication");
         Response response = given(spec).body(payload).post("/api/register");
-        response.prettyPrint();
 
         response.then()
                 .statusCode(201)
                 .body("user.name", equalTo(payload.get("name").asText()))
                 .body("user.email", equalTo(payload.get("email").asText()));
+
+        userId = response.jsonPath().getString("user.id");
+
     }
 
     @Test
