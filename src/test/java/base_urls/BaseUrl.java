@@ -66,4 +66,15 @@ public class BaseUrl {
     private String getCustomerToken() {
         return getToken("customer@sda.com", "Password.12345");
     }
+
+
+    protected void overrideToken(String token) {
+        spec = new RequestSpecBuilder()
+                .setBaseUri(baseUrl)
+                .addHeader("Authorization", "Bearer " + token)
+                .setContentType(ContentType.JSON)
+                .setAccept(ContentType.JSON)
+                .build();
+    }
+
 }
