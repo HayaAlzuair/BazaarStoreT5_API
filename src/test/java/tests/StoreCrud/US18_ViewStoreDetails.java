@@ -1,18 +1,13 @@
 package tests.StoreCrud;
-
 import base_urls.BaseUrl;
 import com.fasterxml.jackson.databind.JsonNode;
-import io.restassured.response.Response;
-import org.testng.annotations.Test;
-
+import io.restassured.response.Response; import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 import static javax.swing.UIManager.get;
 import static org.hamcrest.Matchers.equalTo;
 import static tests.StoreCrud.US19_CreateNewStore.storeId;
 import static utilities.ObjectMapperUtils.getJsonNode;
-
 public class US18_ViewStoreDetails extends BaseUrl {
-
     @Test
     void GetSpecificStore() {
         setSpec(UserType.ADMIN);
@@ -20,7 +15,6 @@ public class US18_ViewStoreDetails extends BaseUrl {
         System.out.println(storeId);
         Response response = given(spec).get("/api/stores/" + storeId);
         response.prettyPrint();
-
 
         response
                 .then()
@@ -35,11 +29,13 @@ public class US18_ViewStoreDetails extends BaseUrl {
                 );
 
 
-    }@Test
+    }
+
+    @Test
     void TestNotFound() {
         setSpec(UserType.ADMIN);
         JsonNode expectedData = getJsonNode("Store");
-        Response response = given(spec).get("/api/stores/999999" );
+        Response response = given(spec).get("/api/stores/999999");
         response.prettyPrint();
 
         response
@@ -56,6 +52,5 @@ public class US18_ViewStoreDetails extends BaseUrl {
 
 
     }
-
-
 }
+

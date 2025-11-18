@@ -1,0 +1,7 @@
+{
+  "name": "reem",
+  "email": "reeem1@sda.com",
+  "password": "Test1234",
+  "password_confirmation": "Test1234",
+  "role" : "customer"
+}

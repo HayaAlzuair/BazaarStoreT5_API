@@ -26,9 +26,8 @@ public class US20_UpdateExistingStore extends BaseUrl {
 
 
     }
-
     @Test
-    void NotFounf() {
+    void NotFound() {
         setSpec(UserType.ADMIN);
         JsonNode payload = getJsonNode("UpdateStore");
         Response response = given(spec)
@@ -38,27 +37,22 @@ public class US20_UpdateExistingStore extends BaseUrl {
         response.prettyPrint();
         response.then().statusCode(404);
 
-
     }
 
     @Test
     void UpdateError() {
         setSpec(UserType.ADMIN);
-        JsonNode expectedData = getJsonNode("UpdateStore");
-        System.out.println(storeId);
-        Response response = given(spec).get("/api/stores/" + storeId);
-        response.prettyPrint();
 
+            String invalidId = "abc";
 
-        response
-                .then()
-                .statusCode(200)
-                .body(
-                        "id", equalTo(Integer.valueOf(storeId)),
-                        "name", equalTo(expectedData.get("name").asText()),
-                        "description", equalTo(expectedData.get("description").asText()),
-                        "admin_id", equalTo(expectedData.get("admin_id").asInt())
+            Response response = given(spec)
+                    .get("/api/stores/" + invalidId);
 
-                );
+            response.prettyPrint();
+
+            response.then()
+                    .statusCode(422)
+                    .body("message", equalTo("The id field must be a number"));
+        }
     }
-}
+
