@@ -33,7 +33,7 @@ public class US1_RegisterNewUserAccount extends BaseUrl {
                 .body("user.name", equalTo(payload.get("name").asText()))
                 .body("user.email", equalTo(payload.get("email").asText()));
 
-        userId = response.jsonPath().getString("user.id");
+        US1_RegisterNewUserAccount.userId = response.jsonPath().getString("user.id");
 
     }
 
