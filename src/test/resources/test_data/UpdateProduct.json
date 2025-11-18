@@ -1,10 +1,10 @@
 {
-  "id": 2489,
-  "name": "Smart Watch2",
+  "id": 2862,
+  "name": "Smart Watch8",
   "description": "High quality smart watch",
-  "price": 300.00,
-  "stock": 25,
-    "sku": "SW00889",
+  "price": "44.00",
+  "stock": 47,
+  "sku": "SW3567",
   "category_id": 2,
   "manufacturer": "TechCorp",
   "image_url": null,
@@ -13,7 +13,8 @@
   "width": null,
   "height": null,
   "discount": "0.00",
-  "created_at": "2025-11-17T17:10:24.000000Z",
-  "updated_at": "2025-11-17T17:10:24.000000Z",
+  "created_at": "2025-11-18T21:55:35.000000Z",
+  "updated_at": "2025-11-18T21:55:35.000000Z",
   "deleted_at": null
 }
+

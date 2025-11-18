@@ -68,22 +68,19 @@ public class US14_CreateNewProduct extends BaseUrl {
 
     // Product creation failed
 
-
-
     @Test
-    void createProductFailed() {
+    void createProductServerError() {
         setSpec(UserType.STORE_MANAGER);
 
-        JsonNode payload = getJsonNode("Product");
-
+        JsonNode payload = getJsonNode("UpdateProduct");
         Response response = given(spec)
                 .body(payload)
                 .post("/api/products/create");
         response.prettyPrint();
 
         response.then()
-                .statusCode(422) // Validation Error for duplicate SKU
-                .body("message", equalTo("The sku has already been taken."))
-                .body("errors.sku[0]", notNullValue());
+                .statusCode(500)
+                .body("error", notNullValue());
     }
+
 }

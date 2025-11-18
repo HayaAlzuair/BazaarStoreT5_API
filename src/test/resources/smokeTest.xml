@@ -1,0 +1,85 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Smoke Suite" verbose="1">
+
+    <!-- AuthenticationCRUD -->
+    <test name="Authentication Smoke Tests">
+        <classes>
+            <class name="tests.AuthenticationCRUD.US1_RegisterNewUserAccount"/>
+            <class name="tests.AuthenticationCRUD.US2_LoginAsRegisteredUser"/>
+            <class name="tests.AuthenticationCRUD.US3_LogOutOfThePlatform"/>
+            <class name="tests.AuthenticationCRUD.US4_GetCurrentUserProfileInformation"/>
+        </classes>
+    </test>
+
+    <!-- FavoritesCRUD -->
+    <test name="Favorites Smoke Tests">
+        <classes>
+            <class name="tests.FavoritesCRUD.US09_GETAllFavorites"/>
+            <class name="tests.FavoritesCRUD.US10_POSTToFavorites"/>
+            <class name="tests.FavoritesCRUD.US11_DELETEFromFavorites"/>
+        </classes>
+    </test>
+
+    <!-- ProductsCRUD-->
+    <test name="Products Smoke Tests">
+        <classes>
+            <class name="tests.ProductsCRUD.US12_BrowseAllProducts"/>
+            <class name="tests.ProductsCRUD.US13_GETProductById"/>
+
+            <class name="tests.ProductsCRUD.US14_CreateNewProduct">
+                <methods>
+                    <include name="createNewProductSuccessfully"/>
+                    <include name="createProductValidationError"/>
+                </methods>
+            </class>
+
+            <class name="tests.ProductsCRUD.US15_UpdateExistingProduct">
+                <methods>
+                    <include name="updateProductSuccessfully"/>
+                    <include name="updateProductValidationError"/>
+                </methods>
+            </class>
+
+            <class name="tests.ProductsCRUD.US16_DeleteProduct"/>
+        </classes>
+    </test>
+
+    <!-- StoreCRUD -->
+    <test name="Store Smoke Tests">
+        <classes>
+            <class name="tests.StoreCrud.US17_BrowseAllStores"/>
+            <class name="tests.StoreCrud.US18_ViewStoreDetails"/>
+            <class name="tests.StoreCrud.US19_CreateNewStore"/>
+            <class name="tests.StoreCrud.US20_UpdateExistingStore"/>
+            <class name="tests.StoreCrud.US21_DeleteStore"/>
+        </classes>
+    </test>
+
+    <!-- UserCRUD -->
+    <test name="User Smoke Tests">
+        <classes>
+            <class name="tests.UserCRUD.US22_BrowseAllUsers"/>
+            <class name="tests.UserCRUD.US23_ViewUserDetail"/>
+            <class name="tests.UserCRUD.US24_CreateNewUser"/>
+            <class name="tests.UserCRUD.US25_UpdateExistingUser"/>
+            <class name="tests.UserCRUD.US26_DeleteUser"/>
+        </classes>
+    </test>
+
+</suite>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
