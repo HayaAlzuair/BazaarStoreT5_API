@@ -13,15 +13,15 @@ public class US17_BrowseAllStores extends BaseUrl {
     @Test
     void GETAllStores() {
 
-      setSpec(UserType.ADMIN);
-
-
+        setSpec(UserType.ADMIN);
         Response response = given()
                 .spec(spec)
                 .when()
                 .get("/api/stores");
         response.prettyPrint();
-
+        response
+                .then()
+                .statusCode(200);
 
     }
 }
