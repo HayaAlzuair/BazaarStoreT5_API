@@ -19,7 +19,7 @@
                 <methods>
                     <include name="UpdateUser"/>
                 </methods></class>
-            <class name="tests.UserCRUD.US26_DeleteUser"></class>
+            <class name="tests.UserCRUD.US26_DeleteUser"/>
         </classes>
     </test>
 </suite>
