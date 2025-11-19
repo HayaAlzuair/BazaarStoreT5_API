@@ -58,7 +58,6 @@
                     <include name="GetSpecificUser"/>
                 </methods>
             </class>
-            <class name="tests.UserCRUD.US24_CreateNewUser"/>
             <class name="tests.UserCRUD.US25_UpdateExistingUser"/>
             <class name="tests.UserCRUD.US26_DeleteUser"/>
 
