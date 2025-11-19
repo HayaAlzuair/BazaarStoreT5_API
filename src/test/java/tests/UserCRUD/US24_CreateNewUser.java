@@ -18,7 +18,6 @@ public static String email;
     @Test
     void adminCanCreateUser() {
         setSpec(UserType.ADMIN);
-
         String payload = """
             {
               "name": "reem",
@@ -31,18 +30,18 @@ public static String email;
         email = Faker.instance().internet().emailAddress();
         payload = String.format(payload,email);
 
-
         Response response = given(spec)
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .post("/api/users/create");
 
         response.prettyPrint();
-
+        System.out.println("Full response: " + response.asString());
         response.then()
                 .statusCode(201)
                 .body("user.name", equalTo("reem"))
-                .body("user.email", equalTo("reeeml21@sda.com"));
+                .body("user.email", equalTo(email));
+
 
     }
     @Test

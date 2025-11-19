@@ -23,18 +23,25 @@ public class US23_ViewUserDetail extends BaseUrl {
         response.prettyPrint();
     }
     }
+
     @Test
-    void TestUserNotFound() {
+    void UserNotFound() {
         setSpec(UserType.ADMIN);
 
-        int invalidUserId = 999999;
+        int nonExistentId = 8888;
 
-        Response response = given(spec).get("/api/users/" + invalidUserId);
+        Response response = given(spec)
+                .when()
+                .get("/api/users/" + nonExistentId);
+
         response.prettyPrint();
+
 
         response
                 .then()
                 .statusCode(404)
-                .body("message", equalTo("User not found"));
+                .body("error", equalTo("User not found"));
+
+
     }
 }
