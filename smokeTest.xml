@@ -47,11 +47,11 @@
     <!-- StoreCRUD -->
     <test name="Store Smoke Tests">
         <classes>
-            <class name="tests.StoreCrud.US17_BrowseAllStores"/>
-            <class name="tests.StoreCrud.US18_ViewStoreDetails"/>
-            <class name="tests.StoreCrud.US19_CreateNewStore"/>
-            <class name="tests.StoreCrud.US20_UpdateExistingStore"/>
-            <class name="tests.StoreCrud.US21_DeleteStore"/>
+            <class name="tests.StoreCRUD.US17_BrowseAllStores"/>
+            <class name="tests.StoreCRUD.US18_CreateNewStore"/>
+            <class name="tests.StoreCRUD.US19_ViewStoreDetails"/>
+            <class name="tests.StoreCRUD.US20_UpdateExistingStore"/>
+            <class name="tests.StoreCRUD.US21_DeleteStore"/>
         </classes>
     </test>
 
