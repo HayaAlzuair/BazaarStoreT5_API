@@ -33,17 +33,8 @@
     <test name="Store Smoke Tests">
         <classes>
             <class name="tests.StoreCRUD.US17_BrowseAllStores"/>
-            <class name="tests.StoreCRUD.US18_CreateNewStore">
-                <methods>
-                    <include name="CreateNewStore"/>
-                </methods>
-            </class>
-
-            <class name="tests.StoreCRUD.US19_ViewStoreDetails">
-                <methods>
-                    <include name="GetSpecificStore"/>
-                </methods>
-            </class>
+            <class name="tests.StoreCRUD.US18_CreateNewStore"></class>
+            <class name="tests.StoreCRUD.US19_ViewStoreDetails"></class>
             <class name="tests.StoreCRUD.US20_UpdateExistingStore">
                 <methods>
                     <include name="PUTStore"/>

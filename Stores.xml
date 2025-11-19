@@ -11,7 +11,6 @@
                     <include name="CreateNewStore"/>
                 </methods>
             </class>
-
             <class name="tests.StoreCRUD.US19_ViewStoreDetails">
                 <methods>
                     <include name="GetSpecificStore"></include>

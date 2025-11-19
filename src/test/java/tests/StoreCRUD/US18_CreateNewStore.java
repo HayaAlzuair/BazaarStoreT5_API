@@ -50,8 +50,6 @@ public class US18_CreateNewStore extends BaseUrl {
                 .post("/api/stores/create");
 
         response.prettyPrint();
-
-
         response.then()
                 .statusCode(422)
                 .body("errors.description", hasItem("The description field is required."))
