@@ -25,6 +25,25 @@
         <classes>
             <class name="tests.ProductsCRUD.US12_BrowseAllProducts"/>
             <class name="tests.ProductsCRUD.US13_GETProductById"/>
+            <class name="tests.ProductsCRUD.US14_CreateNewProduct">
+                <methods>
+                    <include name="createNewProductSuccessfully"/>
+                    <include name="createProductValidationError"/>
+                </methods>
+            </class>
+            <class name="tests.ProductsCRUD.US15_UpdateExistingProduct">
+                <methods>
+                    <include name="updateExistingProductSuccessfully"/>
+                    <include name="updateProductValidationError"/>
+                </methods>
+            </class>
+            <class name="tests.ProductsCRUD.US16_DeleteProduct">
+                <methods>
+                    <include name="deleteProductServerError"/>
+
+                </methods>
+            </class>
+
 
         </classes>
     </test>
