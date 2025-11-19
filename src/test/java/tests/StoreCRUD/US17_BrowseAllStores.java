@@ -1,4 +1,4 @@
-package tests.StoreCrud;
+package tests.StoreCRUD;
 
 import base_urls.BaseUrl;
 import io.restassured.response.Response;

@@ -5,23 +5,23 @@
           name="Store Operation ">
         <classes>
 
-            <class name="tests.StoreCrud.US17_BrowseAllStores"></class>
-            <class name="tests.StoreCrud.US19_CreateNewStore">
+            <class name="tests.StoreCRUD.US17_BrowseAllStores"></class>
+            <class name="tests.StoreCRUD.US18_CreateNewStore">
                 <methods>
                     <include name="CreateNewStore"/>
                 </methods>
             </class>
 
-            <class name="tests.StoreCrud.US18_ViewStoreDetails">
+            <class name="tests.StoreCRUD.US19_ViewStoreDetails">
                 <methods>
                     <include name="GetSpecificStore"></include>
                 </methods>
             </class>
-            <class name="tests.StoreCrud.US20_UpdateExistingStore">
+            <class name="tests.StoreCRUD.US20_UpdateExistingStore">
             <methods>
                 <include name="PUTStore"/>
             </methods></class>
-            <class name="tests.StoreCrud.US21_DeleteStore"></class>
+            <class name="tests.StoreCRUD.US21_DeleteStore"></class>
         </classes>
     </test>
 </suite>

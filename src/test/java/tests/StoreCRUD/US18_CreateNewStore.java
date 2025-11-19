@@ -1,17 +1,19 @@
-package tests.StoreCrud;
+package tests.StoreCRUD;
 
 import base_urls.BaseUrl;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import io.restassured.response.Response;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasItem;
 import static org.testng.AssertJUnit.assertNotNull;
 import static utilities.ObjectMapperUtils.getJsonNode;
 
-public class US19_CreateNewStore extends BaseUrl {
+public class US18_CreateNewStore extends BaseUrl {
 
     public static String storeId;
 
@@ -52,9 +54,7 @@ public class US19_CreateNewStore extends BaseUrl {
 
         response.then()
                 .statusCode(422)
-                .body("errors.description", equalTo("The description field is required"))
-                .body("errors.location", equalTo("The location field is required"))
-                .body("errors.admin_id", equalTo("The admin_id field is required"));
-    }
-
-    }
+                .body("errors.description", hasItem("The description field is required."))
+                .body("errors.location", hasItem("The location field is required."))
+                .body("errors.admin_id", hasItem("The admin id field is required."));
+    }}

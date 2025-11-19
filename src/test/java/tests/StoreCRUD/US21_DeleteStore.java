@@ -1,13 +1,12 @@
-package tests.StoreCrud;
+package tests.StoreCRUD;
 
 import base_urls.BaseUrl;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.lessThan;
-import static tests.StoreCrud.US19_CreateNewStore.storeId;
+import static tests.StoreCRUD.US18_CreateNewStore.storeId;
 
 public class US21_DeleteStore extends BaseUrl {
 
