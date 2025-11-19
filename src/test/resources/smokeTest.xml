@@ -11,6 +11,16 @@
         </classes>
     </test>
 
+    <!-- CartCRUD -->
+    <test name="Customer Cart Smoke Tests">
+        <classes>
+            <class name="tests.CartCRUD.US05_AddProductToShoppingCart"/>
+            <class name="tests.CartCRUD.US06_ViewShoppingCartContents"/>
+            <class name="tests.CartCRUD.US07_RemoveProductFromCart"/>
+            <class name="tests.CartCRUD.US08_ClearShoppingCart"/>
+        </classes>
+    </test>
+
     <!-- FavoritesCRUD -->
     <test name="Favorites Smoke Tests">
         <classes>
