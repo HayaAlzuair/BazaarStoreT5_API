@@ -13,7 +13,7 @@ public class US11_DELETEFromFavorites extends BaseUrl {
     @Test
     void deleteFromFavoritesTest() {
         setSpec(UserType.CUSTOMER);
-        Response response = given(spec).delete("/api/favorites/2975");
+        Response response = given(spec).delete("/api/favorites/2976");
         response.prettyPrint();
 
         response
